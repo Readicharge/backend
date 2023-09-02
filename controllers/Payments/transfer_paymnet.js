@@ -68,7 +68,7 @@ const transfer_paymnet =  async (req, res) => {
         
             // Initiate the payment
             const paymentResult = await initiatePayment(amount, installerDetails.stripePaymentDetails);
-        
+             console.log(paymentResult)
             // Return the payment result
             res.status(200).json({ paymentResult });
           } catch (error) {
