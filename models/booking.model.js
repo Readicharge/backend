@@ -3,7 +3,7 @@ const bookingSchema = new mongoose.Schema({
   // We need to add the details of the User as well , here we will keep the reference for the user 
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Customer',
     required: true
   },
   machinePurchasedByUser: {
