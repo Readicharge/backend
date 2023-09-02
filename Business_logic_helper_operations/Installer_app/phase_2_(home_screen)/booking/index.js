@@ -108,7 +108,7 @@ const handle_Complete_Pending_Job = async (req,res) =>{
 
      const paymentHandller = p.data.paymentResult;
      // Here we will create a payment slip for the material stippend which will be showm to the Corresponding Installer 
-     await createPayment({payment_type:"booking",payment_id:paymentHandller.id,installer:booking.installer,amount:paymentHandller.amount,Job_Id:booking_id,date:date,client_secret:paymentHandller.client_secret})
+     await createPayment({payment_type:"booking",payment_id:paymentHandller.id,installer_id:booking.installer,amount:paymentHandller.amount,Job_Id:booking_id,date:date,client_secret:paymentHandller.client_secret})
     
     booking.completion_steps.stage_2.status_installer = true;
     await booking.save();
