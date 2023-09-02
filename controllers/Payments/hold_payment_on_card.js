@@ -87,7 +87,7 @@ const hold_payment_on_card = async (req, res) => {
             // Keep this one for the customer one
             const booking = await Booking.findById(booking_id);
             const date_today =  new Date();
-            await createPayment({payment_type:"booking",payment_id:paymentIntentId,amount,Job_Id:booking_id,installer_id,date:date_today,client_secret:paymentIntent.client_secret})
+            await createPayment({payment_type:"booking",payment_id:paymentIntentId,amount,Job_Id:booking_id,date:date_today,client_secret:paymentIntent.client_secret})
             booking.customer_payment_status = "Paid";
             await booking.save();
 
