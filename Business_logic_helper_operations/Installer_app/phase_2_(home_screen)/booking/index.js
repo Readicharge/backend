@@ -106,7 +106,7 @@ const handle_Complete_Pending_Job = async (req,res) =>{
         amount : booking.materialCost*100
     });
 
-     console.log(paymentHandller.id)
+     console.log(paymentHandller)
      // Here we will create a payment slip for the material stippend which will be showm to the Corresponding Installer 
      await createPayment({payment_type:"booking",payment_id:paymentHandller.id,installer:booking.installer,amount:paymentHandller.amount,Job_Id:booking_id,date:date,client_secret:paymentHandller.client_secret})
     
