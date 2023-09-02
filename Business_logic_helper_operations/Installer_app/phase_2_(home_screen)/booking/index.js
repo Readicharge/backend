@@ -1,5 +1,6 @@
 const axios = require('axios');
 const Booking = require('../../../../models/booking.model');
+const Payment = require("../../../models/Payment.model")
 const { getCurrentTimeWithSixDecimals } = require('../../../../Business_logic_store_room/get_current_time_in_decimal_format');
 
 
