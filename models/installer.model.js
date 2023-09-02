@@ -12,6 +12,10 @@ const installerSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    union:{
+        type:String,
+        required:false
+    },
     profile_completed:{
         type:Boolean,
         default:false
