@@ -124,7 +124,7 @@ const updateStage2Rating = async (req, res) => {
           booking.completion_steps.stage_2.rating = 1;
         }
       }
-      booking.completion_steps.stage_2.status_customer = true;
+      booking.completion_steps.stage_2.status_installer = true;
       await booking.save();
       res.status(200).json({
         message: 'Stage 2 rating updated successfully',
