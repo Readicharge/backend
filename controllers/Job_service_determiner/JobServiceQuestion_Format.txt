@@ -1,0 +1,27 @@
+
+
+the list of objects which are passed from the frontend are as follows "
+
+{
+    "r1":value for r1
+},
+{
+    "r2":value for r2 
+},
+and so on mapping this to the excel sheet Job Quote mapping
+
+So for the complete job Mapping section , 
+
+We are first going to identify the nature of the job
+                    |
+Then we are going to decide the number of Installs we want to have 
+                    |
+Then We are going to detemine that what are the additional cose which are needed here
+                    |
+This above thing will be done for all the chargers 
+                    |
+The comparison is done and the one with the more amount is alloted as the Installation type for all the chargers
+                    |
+The Customer will see the total amount he has to pay and the booking is done on this price only,
+However the installer will get the stippend amount of the material cost 
+and his labor charge

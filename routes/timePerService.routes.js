@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const timeController = require('../controllers/timePerService.controller');
+ router.post('/', timeController.createTime);
+router.get('/', timeController.getAllTimes);
+router.get("/:installerId",timeController.getTimeperInstaller);
+router.get('/:id', timeController.getTimeById);
+router.put('/:id', timeController.updateTime);
+router.delete('/:id', timeController.deleteTime);
+ module.exports = router;

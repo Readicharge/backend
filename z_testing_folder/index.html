@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://sandbox.clearchecks.com/js/widgets/applicant-form-widget.js'></script>  
+</head>
+<body>
+    <button class="btn" id="open-widget-btn">
+        Open the Applicant Form
+    </button>
+    <script>
+        document.getElementById('open-widget-btn').addEventListener('click', e => {
+          const applicantWidget = ClearChecksApplicantWidget.init({
+            reportKey: 'zbz8YdK4G7BhntXpCXePtx22dNmnGyiONlN88QSeyL2tVMk440Dsmq1fOPeD',
+      
+            onSuccess: function(data) {
+              console.log(data)
+            },
+      
+            onClose: function() {
+              console.log('Widget was closed')
+            },
+      
+            onError: function(error) {
+              console.error('An error occured', error)
+            }
+          });
+          applicantWidget.open();
+        });
+      </script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+Base URL : http://localhost:5000
+
+
+Admin 
+
+1. create admin 
+    URL : Base URL/api/admins
+    Method : POST
+    Notes : In this we have to see that how we can add the image in the database ( Profile Image for the admin )
+    Frontend Use :
+     1. Super Admin 
+    Status :Working , but need to fix the image
+
+2. get admin 
+    URL : Base URL/api/admins
+    Method : GET 
+    Notes : N/A
+    Frontend Use : 
+     1. Super Admin Table 
+    Status : working 
+
+3. get admin by Id 
+    URL : Base URL/api/admins/:adminId
+    Method : GET
+    Notes : N/A
+    Frontend Use : N/A
+    Status : Working 
+
+4. update admin by Id
+    URL : Base URL/api/admins/:adminId
+    Method : PUT
+    Notes : N/A 
+    Frontend Use : SuperAdmin Update Details 
+    Status : Working
+
+5. delete admin by Id
+    URL : Base URL/api/admins/:adminId
+    Method : DELETE
+    Notes : N/A
+    Frontend Use : SuperAdmin admin table 
+    Status : working 
+
+
+
+
+
+SERVICES 
+
+
+1. Create a new service 
+   URL : Base URL/services/
+   Method : POST 
+   Notes : N/A
+   Frontend Use : Admin can add new service
+   Status : working
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Installer Availability ( Monthly Calender )
+
+1. create/update/delete(conditionally) installer availability 
+    URL : Base URL/api/availability/:installerId
+    Method : PUT
+    Notes : N/A
+
+2. Get all availability by installer Id
+    URL : Base URL/api/availability/:installerId
+    Method : GET
+    Notes : N/A
+
+
+Installer Availability ( weekly Calender )
+
+1. 
+
+
+
