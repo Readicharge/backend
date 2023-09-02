@@ -191,7 +191,9 @@ const bookingSchema = new mongoose.Schema({
       default: 'Pending'
     },
     completionStatus: {
-      type: Boolean,
+      type: String,
+      enum: ['LIVE', 'COMPLETED','PENDING'],
+      default: 'PENDING'
     },
     installer_payment_release_status: {
       material_stippend: {
