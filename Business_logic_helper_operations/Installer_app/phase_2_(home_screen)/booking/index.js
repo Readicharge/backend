@@ -137,7 +137,7 @@ const handle_Complete_Complete_job = async ( req,res ) => {
     const UserhasVerified = false //This is going to use this for the customer to verify || if the update is not coming since last 24 hours then automatically set to true
     // Api call for releasing the material charge to the Installer
     await axios.put(`${process.env.BASE_BACKEND_URL}/payments/transfer-funds/Installer/${booking.installer}`,{
-        amount : booking.materialCost + booking.labourRates
+        amount : booking.materialCost;
     });
 
     res.status(200).json({
