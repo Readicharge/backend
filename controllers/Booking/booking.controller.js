@@ -200,6 +200,17 @@ const getBookingsByInstaller = async (req, res) => {
     }
 }
 
+const getBookingsByCustomer = async (req, res) => {
+    try {
+        const customerId = req.params.id;
+        const bookings = await Booking.find({ user: customerId });
+        res.json(bookings);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Failed to get bookings by installer' });
+    }
+}
+
 
 const getBookingsForInstallerAndActiveStatus = async (req, res) => {
     try {
@@ -727,7 +738,7 @@ const findListOfInstallers = async (req, res) => {
 
 
 module.exports = {
-    createBooking, updateBooking, deleteBooking, getBookingsByInstaller, getAllBookings,
+    createBooking, updateBooking, deleteBooking, getBookingsByInstaller, getAllBookings,getBookingsByCustomer,
     getBookingsForInstallerAndActiveStatus,
     updateStage0Rating,
     updateStage1Rating,
