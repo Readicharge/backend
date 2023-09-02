@@ -120,7 +120,7 @@ const handle_Complete_Complete_job = async ( req,res ) => {
     // const {user_given_rating} = req.body;
 
     booking.completion_steps.stage_2.status_installer = true;
-
+   await booking.save();
 
     const date = new Date();
     const time = await getCurrentTimeWithSixDecimals();
