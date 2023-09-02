@@ -4,6 +4,7 @@ const router = express.Router();
 router.post("/",bookingController.createBooking);
 router.get("/",bookingController.getAllBookings);
 router.get("/installer/:id",bookingController.getBookingsByInstaller);
+router.get("/customer/:id",bookingController.getBookingsByCustomer);
 // router.get("/user/:id",bookingController.getBookingsByUser);
 router.delete("/:id",bookingController.deleteBooking);
 router.put("/:id",bookingController.updateBooking);
