@@ -100,9 +100,13 @@ const handle_Complete_Pending_Job = async (req,res) =>{
 
     const UserhasVerified = false //This is going to use this for the customer to verify || if the update is not coming since last 24 hours then automatically set to true
     // Api call for releasing the material charge to the Installer
-    await axios.put(`${process.env.BASE_BACKEND_URL}/payments/transfer-funds/Installer/${booking.installer}`,{
+   const paymentHandller =  await axios.put(`${process.env.BASE_BACKEND_URL}/payments/transfer-funds/Installer/${booking.installer}`,{
         amount : booking.materialCost*100
     });
+
+     console.log(paymentHandller.id)
+     // Here we will create a payment slip for the material stippend which will be showm to the Corresponding Installer 
+     await createPayment({payment_type:"booking",payment_id:paymentHandller.id,installer:booking.installer,amount:paymentHandller.amount,Job_Id:booking_id,date:date,client_secret:paymentHandller.client_secret})
     
     booking.completion_steps.stage_2.status_installer = true;
     await booking.save();
