@@ -204,6 +204,7 @@ const getBookingsByCustomer = async (req, res) => {
     try {
         const customerId = req.params.id;
         const bookings = await Booking.find({ user: customerId });
+        console.log(bookings);
         res.json(bookings);
     } catch (err) {
         console.error(err);
