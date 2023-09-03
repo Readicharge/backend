@@ -128,9 +128,10 @@ async function getCoordinates(addressLine1, addressLine2, zip, state) {
         { ...rest, addressLine1, addressLine2, state, zip, city, latitude, longitude },
         { new: true }
       );
-  
+  console.log(updatedCustomer)
       res.status(200).json(updatedCustomer);
     } catch (err) {
+        console.log(err)
       res.status(400).json({ error: err.message });
     }
   };
