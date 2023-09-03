@@ -106,6 +106,8 @@ async function getCoordinates(addressLine1, addressLine2, zip, state) {
   
       // Get the current installer object
       const currentCustomer = await Customer.findById(customerId);
+
+        console.log(currentCustomer);
   
       // If the address fields are provided, get the updated latitude and longitude
       let latitude = currentCustomer.latitude;
