@@ -99,8 +99,44 @@ async function getCoordinates(addressLine1, addressLine2, zip, state) {
       };
 
 
+  const updateCustomer = async (req, res) => {
+    try {
+      const customerId = req.params.id;
+      const { addressLine1, addressLine2, state, zip, city, ...rest } = req.body;
+  
+      // Get the current installer object
+      const currentCustomer = await Customer.findById(customerId);
+  
+      // If the address fields are provided, get the updated latitude and longitude
+      let latitude = currentCustomer.latitude;
+      let longitude = currentCustomer.longitude;
+      if (addressLine1 || addressLine2 || zip || state) {
+        const coordinates = await getCoordinates(
+          addressLine1 || currentInstaller.addressLine1,
+          zip || currentInstaller.zip,
+          state || currentInstaller.state
+        );
+        latitude = coordinates.latitude;
+        longitude = coordinates.longitude;
+      }
+  
+      // Update the customer with the new values
+      const updatedCustomer = await Customer.findByIdAndUpdate(
+        customerId,
+        { ...rest, addressLine1, addressLine2, state, zip, city, latitude, longitude },
+        { new: true }
+      );
+  
+      res.status(200).json(updatedCustomer);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
+  };
+
+
 
 
 module.exports = {
-    createCustomer
+    createCustomer,
+    updateCustomer,
 }
