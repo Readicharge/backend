@@ -87,7 +87,7 @@ async function getCoordinates(addressLine1, addressLine2, zip, state) {
       const { addressLine1, addressLine2, state, zip, city, ...rest } = req.body;
       const last_sequence_number = await findMostRecentInstaller();
       const current_sequence_number = last_sequence_number + 1;
-      const readicharge_unique_id = `RC-US-I-${current_sequence_number}`;
+      const readicharge_unique_id = `RC-I-US-${current_sequence_number}`;
 
         const { latitude, longitude } = await getCoordinates(addressLine1, addressLine2, zip, state);
         console.log(latitude, longitude);
