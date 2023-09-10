@@ -429,7 +429,7 @@ const installerAvailability = async (req,res) => {
         }
        else
         {
-             res.status(400).json({status:false});
+             res.status(200).json({status:false});
         }
     }
     catch(error)
