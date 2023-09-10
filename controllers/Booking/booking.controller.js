@@ -402,6 +402,7 @@ const installerAvailability = async (req,res) => {
           const geo = await getCoordinates(addressLine1, addressLine2, zip, state);
           const userLatitude = geo.latitude;
           const userLongitude = geo.longitude;
+         let nearestInstaller = [];
           const installers = await Installer.find({state: state }).exec();
 
          installers.forEach((installer) => {
