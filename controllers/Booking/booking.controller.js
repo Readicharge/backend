@@ -414,7 +414,7 @@ const installerAvailability = async (req,res) => {
                     installer: installer,
                     distance: distance
                 });
-                break;
+                
             }
         });
 
@@ -425,6 +425,7 @@ const installerAvailability = async (req,res) => {
     }
     catch(error)
     {
+        console.log(error);
         res.status(500).json(error)
     }
 
