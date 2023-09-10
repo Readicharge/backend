@@ -414,6 +414,7 @@ const installerAvailability = async (req,res) => {
                     installer: installer,
                     distance: distance
                 });
+                break;
             }
         });
 
