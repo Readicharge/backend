@@ -15,6 +15,8 @@ router.get("/:id",bookingController.getBookingById);
 router.get("/find_available_installer_list",bookingController.findListOfInstallers);
 // Route for getting the installer for the selection 
 router.get("/find_installer/",bookingController.getNearestInstaller);
+// Route to find whether an address has any installers there or not 
+router.get("/find_installer_zipcode",bookingController.installerAvailability);
 
 
 
