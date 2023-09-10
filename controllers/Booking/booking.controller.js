@@ -399,7 +399,7 @@ const calculateInstallerRating = async (req, res) => {
 const installerAvailability = async (req,res) => {
     try {
         const {addressLine1, addressLine2, zip, state} = req.body;
-          const geo = await getCoordinates(addressLine1, addressLine2, zip, state);
+          const geo = await getCoordinates(addressLine1 = " ", addressLine2 = " ", zip , state =" ");
           const userLatitude = geo.latitude;
           const userLongitude = geo.longitude;
          let nearestInstaller = [];
