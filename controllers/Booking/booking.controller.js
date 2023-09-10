@@ -411,7 +411,7 @@ const installerAvailability = async (req,res) => {
             // area of the installer then the installer is added to the list for further evaluation 
             console.log(userLatitude);
              console.log(userLongitude);
-             console.log("________________________________);
+             console.log("________________________________");
              console.log(installer.latitude);
              console.log(installer.longitude);
             if (distance <= installer.miles_distance) {
