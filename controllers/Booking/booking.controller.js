@@ -396,6 +396,40 @@ const calculateInstallerRating = async (req, res) => {
 // Z_this is in the testing phase 
 
 // Get coordinates for the given address using OpenStreetMap
+const installerAvailability = async (req,res) => {
+    try {
+        const {addressLine1, addressLine2, zip, state} = req.body;
+          const geo = await getCoordinates(addressLine1, addressLine2, zip, state);
+          const userLatitude = geo.latitude;
+          const userLongitude = geo.longitude;
+          const installers = await Installer.find({state: state }).exec();
+
+         installers.forEach((installer) => {
+            const distance = getDistance(userLatitude, userLongitude, installer.latitude, installer.longitude);
+            // finding the distance between the installer address and the user address and if the distance is under the working 
+            // area of the installer then the installer is added to the list for further evaluation 
+            console.log(`miles:${installer.miles_distance} && distance between address :${distance}`)
+            if (distance <= installer.miles_distance) {
+                nearestInstaller.push({
+                    installer: installer,
+                    distance: distance
+                });
+            }
+        });
+
+        if(nearestInstaller.length > 0 ) {
+            res.status(200).json({status:true});
+        }
+        res.status(400).json({status:false});
+    }
+    catch(error)
+    {
+        res.status(500).json(error)
+    }
+
+    }
+
+
 
 
 
@@ -747,5 +781,6 @@ module.exports = {
     calculateInstallerRating,
     findListOfInstallers,
     getNearestInstaller,
-    getBookingById
+    getBookingById,
+    installerAvailability
 }
