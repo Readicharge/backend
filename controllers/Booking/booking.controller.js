@@ -398,8 +398,9 @@ const calculateInstallerRating = async (req, res) => {
 // Get coordinates for the given address using OpenStreetMap
 const installerAvailability = async (req,res) => {
     try {
-        const {zip} = req.body;
-          const geo = await getCoordinates( " ", " ", zip , " "," ");
+          const { addressLine1, addressLine2, zip, state , city } = req.body;
+        
+            const geo = await getCoordinates(addressLine1, addressLine2, zip, ,city, state);
           const userLatitude = geo.latitude;
           const userLongitude = geo.longitude;
          let nearestInstaller = [];
