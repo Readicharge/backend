@@ -409,9 +409,11 @@ const installerAvailability = async (req,res) => {
             const distance = getDistance(userLatitude, userLongitude, installer.latitude, installer.longitude);
             // finding the distance between the installer address and the user address and if the distance is under the working 
             // area of the installer then the installer is added to the list for further evaluation 
-            console.log(userLatitude,userLongitude);
+            console.log(userLatitude);
+             console.log(userLongitude);
              console.log("________________________________);
-             console.log(installer.latitude,installer.longitude)
+             console.log(installer.latitude);
+             console.log(installer.longitude);
             if (distance <= installer.miles_distance) {
                 nearestInstaller.push({
                     installer: installer,
