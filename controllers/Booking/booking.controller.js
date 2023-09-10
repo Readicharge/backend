@@ -773,7 +773,7 @@ const findListOfInstallers = async (req, res) => {
 
 
 module.exports = {
-    createBooking, updateBooking, deleteBooking, getBookingsByInstaller, getAllBookings,getBookingsByCustomer,
+    createBooking, updateBooking, deleteBooking, getBookingsByInstaller, getAllBookings,getBookingsByCustomer, installerAvailability,
     getBookingsForInstallerAndActiveStatus,
     updateStage0Rating,
     updateStage1Rating,
@@ -782,5 +782,5 @@ module.exports = {
     findListOfInstallers,
     getNearestInstaller,
     getBookingById,
-    installerAvailability
+   
 }
