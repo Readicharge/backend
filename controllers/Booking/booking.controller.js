@@ -598,9 +598,9 @@ const getNearestInstaller = async (req, res) => {
 
 
 // FUNCTION TO GET THE COORDINATES BASED ON THE ADDRESS FROM THE THIRD PARTY API 
-async function getCoordinates(addressLine1, addressLine2, zip, state) {
+async function getCoordinates(addressLine1, addressLine2, zip, city, state) {
     try {
-        const address = `${addressLine1} ${addressLine2} ${state} ${zip}`;
+        const address = `${addressLine1} ${addressLine2} ${city} ${state} ${zip}`;
         const response = await axios.get('http://api.positionstack.com/v1/forward', {
             params: {
                 access_key: process.env.GEO_API_KEY,
@@ -617,6 +617,7 @@ async function getCoordinates(addressLine1, addressLine2, zip, state) {
             latitude: location.latitude,
             longitude: location.longitude,
         };
+        console.log(geo);
         return geo;
     } catch (error) {
         console.log(error);
