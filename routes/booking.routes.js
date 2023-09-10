@@ -9,14 +9,15 @@ router.get("/customer/:id",bookingController.getBookingsByCustomer);
 router.delete("/:id",bookingController.deleteBooking);
 router.put("/:id",bookingController.updateBooking);
 router.get("/Complete_Installer/:installerId/:status", bookingController.getBookingsForInstallerAndActiveStatus);
-// Route for getting the Job By its id
-router.get("/:id",bookingController.getBookingById);
 // Route for getting the list of installers in the particular area 
 router.get("/find_available_installer_list",bookingController.findListOfInstallers);
 // Route for getting the installer for the selection 
 router.get("/find_installer/",bookingController.getNearestInstaller);
 // Route to find whether an address has any installers there or not 
 router.get("/find_installer_zipcode",bookingController.installerAvailability);
+// Route for getting the Job By its id
+router.get("/:id",bookingController.getBookingById);
+
 
 
 
