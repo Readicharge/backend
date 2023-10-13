@@ -15,7 +15,16 @@ exports.updateAvailability = async (req, res) => {
       if (availability.time_start === time_start && availability.time_end === time_end) {
         // Delete the availability if the time slots match
         // await Availability.findByIdAndDelete(availability._id);
+        if(availability.type !== type) 
+        {
+           availability.type = type;
+        await availability.save();
+            return res.json(availability);
+        }
+        else
+        {
        return res.json(availability);
+        }
       } else {
         // Update the availability if the time slots are different
         availability.time_start = time_start;
